@@ -1,0 +1,93 @@
+##################################
+# TimedRankups by gatogamer#6666 #
+##################################
+
+handle rankup commands:
+  - "say %player% just ranked up to %rank_prefix% more known as %rank_name%"
+  - "lp user %player% parent add %rank_name%"
+  - "lp user %player% parent remove %old_rank_name%"
+
+default rank: "Usuario"
+
+MySQL:
+  Host: "127.0.0.1"
+  Port: "3306"
+  Username: "root"
+  Password: "password"
+  Database: "DynamicPremium"
+
+enabled rankups: # Reverse order in order to have the priority to high ranks.
+  - "Rojo"
+  - "Verde"
+  - "Aqua"
+  - "Morado"
+  - "Amarillo"
+  - "Blanco"
+  - "Oro"
+  - "Cyan"
+  - "Purpura"
+  - "Usuario"
+
+no more ranks: "&búltimo rango"
+
+rankups:
+  Usuario:
+    time: 0 # seconds, put 0 for default.
+    prefix: "&7Usuario"
+  Purpura:
+    time: 604800 # 1 week
+    prefix: "&5Púrpura"
+  Cyan:
+    time: 2629800 # 1 month
+    prefix: "&3Cian"
+  Oro:
+    time: 7889400 # 3 months
+    prefix: "&6Oro"
+  Blanco:
+    time: 21038400 # 8 months
+    prefix: "&fBlanco"
+  Amarillo:
+    time: 26298000 # 10 months
+    prefix: "&eAmarilo"
+  Morado:
+    time: 31557600 # 1 year
+    prefix: "&dMorado"
+  Aqua:
+    time: 39447000 # 1 year and 3 months
+    prefix: "&bCeleste"
+  Verde:
+    time: 47336400 # 1 year and 6 months
+    prefix: "&aVerde"
+  Rojo:
+    time: 63115200 # 2 years
+    prefix: "&4Rojo"
+
+commands:
+  see:
+    next:
+      - "&7&m&l----------------------------"
+      - "&7Te falta &b%parsedTime% &7para"
+      - "&7obtener el rango %new_rank_prefix%"
+      - "&7&m&l----------------------------"
+    noMore:
+      - "&7&m&l----------------------------"
+      - "&7Ya tienes el último rango."
+      - "&7&m&l----------------------------"
+  listed:
+    format: "&7%rank_prefix% &8- &b%rank_pending_time%&7/&b%rank_needed_time%"
+    formatAlready: "&7%rank_prefix% &8- &b&b%rank_needed_time% &7(obtenido)"
+    send:
+      - "&7&m&l----------------------------"
+      - "&7Lista de rangos:"
+      - "%ranks%"
+      - "&7&m&l----------------------------"
+
+ranked:
+  all:
+    - "&7&m&l----------------------------"
+    - "&7¡&b%player% &7ahora es &b%rank_prefix%&7!"
+    - "&7&m&l----------------------------"
+  own:
+    - "&7&m&l----------------------------"
+    - "&7¡&7Ahora eres &b%rank_prefix%&7!"
+    - "&7&m&l----------------------------"
