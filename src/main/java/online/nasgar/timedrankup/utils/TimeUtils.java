@@ -1,14 +1,7 @@
-package me.gatogamer.timedrankup.utils;
+package online.nasgar.timedrankup.utils;
 
 import java.time.Duration;
 
-/**
- * This code has been created by
- * gatogamer#6666 A.K.A. gatogamer.
- * If you want to use my code, please
- * don't remove this messages and
- * give me the credits. Arigato! n.n
- */
 public class TimeUtils {
 
     public static String formatTime(final Duration duration) {

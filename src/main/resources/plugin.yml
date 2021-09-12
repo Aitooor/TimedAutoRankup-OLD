@@ -1,12 +1,14 @@
 name: TimedRankup
 version: ${project.version}
-main: me.gatogamer.timedrankup.TimedRankup
+main: online.nasgar.timedrankup.TimedRankup
 api-version: 1.17
 depend: [ Vault, PlaceholderAPI ]
-authors: [ gatogamer ]
+authors: [ gatogamer, NasgarNetwork ]
 description: A simple plugin to get timed rankups
 website: https://insaneprojects.club
 
-commands:
-  seerankup:
-  seenextrankup:
+api: "1.8"
+
+command:
+  seerankup: See your rankup
+  seenextrankup: See your next rankup

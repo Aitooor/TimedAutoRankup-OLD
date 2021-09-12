@@ -1,16 +1,17 @@
-package me.gatogamer.timedrankup;
+package online.nasgar.timedrankup;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
-import me.gatogamer.timedrankup.commands.SeeNextRankupCommand;
-import me.gatogamer.timedrankup.commands.SeeRankupCommand;
-import me.gatogamer.timedrankup.listeners.JoinListener;
-import me.gatogamer.timedrankup.placeholders.NyaPlaceholders;
-import me.gatogamer.timedrankup.rank.RankManager;
-import me.gatogamer.timedrankup.tasks.RankCheckerTask;
-import me.gatogamer.timedrankup.user.MySQL;
-import me.gatogamer.timedrankup.user.UserManager;
-import me.gatogamer.timedrankup.utils.TimeUtils;
+import online.nasgar.timedrankup.commands.SeeNextRankupCommand;
+import online.nasgar.timedrankup.commands.SeeRankupCommand;
+import online.nasgar.timedrankup.listeners.JoinListener;
+import online.nasgar.timedrankup.placeholders.NyaPlaceholders;
+import online.nasgar.timedrankup.rank.RankManager;
+import online.nasgar.timedrankup.tasks.RankCheckerTask;
+import online.nasgar.timedrankup.user.MySQL;
+import online.nasgar.timedrankup.user.UserManager;
+import online.nasgar.timedrankup.utils.TimeUtils;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;

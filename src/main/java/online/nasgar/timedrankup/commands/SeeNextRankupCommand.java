@@ -1,11 +1,12 @@
-package me.gatogamer.timedrankup.commands;
+package online.nasgar.timedrankup.commands;
 
 import lombok.RequiredArgsConstructor;
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.gatogamer.timedrankup.TimedRankup;
-import me.gatogamer.timedrankup.rank.Rank;
-import me.gatogamer.timedrankup.user.User;
-import me.gatogamer.timedrankup.utils.TimeUtils;
+import online.nasgar.timedrankup.TimedRankup;
+import online.nasgar.timedrankup.rank.Rank;
+import online.nasgar.timedrankup.user.User;
+import online.nasgar.timedrankup.utils.TimeUtils;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,13 +15,6 @@ import org.bukkit.entity.Player;
 
 import java.time.Duration;
 
-/**
- * This code has been created by
- * gatogamer#6666 A.K.A. gatogamer.
- * If you want to use my code, please
- * don't remove this messages and
- * give me the credits. Arigato! n.n
- */
 @RequiredArgsConstructor
 public class SeeNextRankupCommand implements CommandExecutor {
     private final TimedRankup timedRankup;

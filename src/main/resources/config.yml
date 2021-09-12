@@ -1,6 +1,6 @@
-##################################
-# TimedRankups by gatogamer#6666 #
-##################################
+#################
+# TimedRankups  #
+#################
 
 handle rankup commands:
   - "say %player% just ranked up to %rank_prefix% more known as %rank_name%"

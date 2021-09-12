@@ -1,9 +1,9 @@
-package me.gatogamer.timedrankup.user;
+package online.nasgar.timedrankup.user;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import me.gatogamer.timedrankup.TimedRankup;
+import online.nasgar.timedrankup.TimedRankup;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,13 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-/**
- * This code has been created by
- * gatogamer#6666 A.K.A. gatogamer.
- * If you want to use my code, please
- * don't remove this messages and
- * give me the credits. Arigato! n.n
- */
 @Getter
 @Setter
 @RequiredArgsConstructor
