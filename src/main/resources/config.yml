@@ -3,64 +3,64 @@
 #################
 
 handle rankup commands:
-  - "say %player% just ranked up to %rank_prefix% more known as %rank_name%"
+  - "tellraw @a ["",{"text":"%player%","color":"aqua"},{"text":" just ranked up to","color":"white"},{"text":" %rank_prefix%","color":"green"},{"text":" more known as","color":"white"},{"text":" %rank_name%","color":"red"}]"
   - "lp user %player% parent add %rank_name%"
   - "lp user %player% parent remove %old_rank_name%"
 
 default rank: "Usuario"
 
 MySQL:
-  Host: "127.0.0.1"
+  Host: "localhost"
   Port: "3306"
   Username: "root"
   Password: "password"
-  Database: "DynamicPremium"
+  Database: "database"
 
 enabled rankups: # Reverse order in order to have the priority to high ranks.
-  - "Rojo"
-  - "Verde"
+  - "Red"
+  - "Green"
   - "Aqua"
-  - "Morado"
-  - "Amarillo"
-  - "Blanco"
-  - "Oro"
+  - "Purple"
+  - "Yellow"
+  - "White"
+  - "Gold"
   - "Cyan"
-  - "Purpura"
+  - "Pink"
   - "Usuario"
 
-no more ranks: "&búltimo rango"
+no more ranks: "&cUltimo Rango"
 
 rankups:
   Usuario:
     time: 0 # seconds, put 0 for default.
     prefix: "&7Usuario"
-  Purpura:
+  Pink:
     time: 604800 # 1 week
-    prefix: "&5Púrpura"
+    prefix: "&5Pink"
   Cyan:
     time: 2629800 # 1 month
-    prefix: "&3Cian"
-  Oro:
+    prefix: "&3Cyan"
+  Gold:
     time: 7889400 # 3 months
-    prefix: "&6Oro"
-  Blanco:
+    prefix: "&6Gold"
+  White:
     time: 21038400 # 8 months
-    prefix: "&fBlanco"
-  Amarillo:
+    prefix: "&fWhite"
+  Yellow:
     time: 26298000 # 10 months
-    prefix: "&eAmarilo"
-  Morado:
+    prefix: "&eYellow"
+  Purple:
     time: 31557600 # 1 year
-    prefix: "&dMorado"
+    prefix: "&dPurple"
   Aqua:
     time: 39447000 # 1 year and 3 months
-    prefix: "&bCeleste"
-  Verde:
+    prefix: "&bAqua"
+  Green:
     time: 47336400 # 1 year and 6 months
-    prefix: "&aVerde"
-  Rojo:
+    prefix: "&aGreen"
+  Red:
     time: 63115200 # 2 years
-    prefix: "&4Rojo"
+    prefix: "&4Red"
 
 commands:
   see:
@@ -71,23 +71,23 @@ commands:
       - "&7&m&l----------------------------"
     noMore:
       - "&7&m&l----------------------------"
-      - "&7Ya tienes el último rango."
+      - "&7You're in the last rankup."
       - "&7&m&l----------------------------"
   listed:
     format: "&7%rank_prefix% &8- &b%rank_pending_time%&7/&b%rank_needed_time%"
     formatAlready: "&7%rank_prefix% &8- &b&b%rank_needed_time% &7(obtenido)"
     send:
       - "&7&m&l----------------------------"
-      - "&7Lista de rangos:"
+      - "&7Rank list:"
       - "%ranks%"
       - "&7&m&l----------------------------"
 
 ranked:
   all:
     - "&7&m&l----------------------------"
-    - "&7¡&b%player% &7ahora es &b%rank_prefix%&7!"
+    - "&7¡&b%player% &7rankup to &b%rank_prefix%&7!"
     - "&7&m&l----------------------------"
   own:
     - "&7&m&l----------------------------"
-    - "&7¡&7Ahora eres &b%rank_prefix%&7!"
+    - "&7¡&7You rankup to &b%rank_prefix%&7!"
     - "&7&m&l----------------------------"

@@ -5,7 +5,7 @@ api-version: 1.17
 depend: [ Vault, PlaceholderAPI ]
 authors: [ gatogamer, NasgarNetwork ]
 description: A simple plugin to get timed rankups
-website: https://insaneprojects.club
+websites: [ https://insaneprojects.club, https://nasgar.online ]
 
 api: "1.8"
 
