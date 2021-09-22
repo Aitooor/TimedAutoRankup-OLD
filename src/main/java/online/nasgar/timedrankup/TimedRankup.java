@@ -61,7 +61,7 @@ public final class TimedRankup extends JavaPlugin {
         getCommand("seerankup").setExecutor(new SeeRankupCommand(this));
         getCommand("seenextrankup").setExecutor(new SeeNextRankupCommand(this));
 
-        log("&7Plugin loaded successfully in &b" + TimeUtils.formatTimeWithMillis(Duration.ofMillis(System.currentTimeMillis() - startTime)) + "&7...");
+        log("&7Plugin loaded successfully in&b " + TimeUtils.formatTimeWithMillis(Duration.ofMillis(System.currentTimeMillis() - startTime)) + "&7...");
     }
 
     @SneakyThrows
