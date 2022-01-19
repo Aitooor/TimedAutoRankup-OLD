@@ -3,62 +3,61 @@
 #################
 
 handle rankup commands:
-  - "tellraw @a ["",{"text":"%player%","color":"aqua"},{"text":" just ranked up to","color":"white"},{"text":" %rank_prefix%","color":"green"},{"text":" more known as","color":"white"},{"text":" %rank_name%","color":"red"}]"
   - "lp user %player% parent add %rank_name%"
   - "lp user %player% parent remove %old_rank_name%"
 
-default rank: "Usuario"
+default rank: "default"
 
 MySQL:
   Host: "localhost"
   Port: "3306"
-  Username: "root"
-  Password: "password"
-  Database: "database"
+  Username: "usrcx_locsql58"
+  Password: "BhN7AsMqAeAUQkKaQ76GVkK43EJbxXuVsLcVEGQGN2pkeWq2eaQKwGqJb5cFBWdaaNs2GxZUe6v"
+  Database: "survival"
 
 enabled rankups: # Reverse order in order to have the priority to high ranks.
-  - "Red"
-  - "Green"
-  - "Aqua"
-  - "Purple"
-  - "Yellow"
-  - "White"
-  - "Gold"
-  - "Cyan"
-  - "Pink"
-  - "Usuario"
+  - "red"
+  - "green"
+  - "aqua"
+  - "purple"
+  - "yellow"
+  - "white"
+  - "gold"
+  - "cyan"
+  - "pink"
+  - "default"
 
 no more ranks: "&cUltimo Rango"
 
 rankups:
-  Usuario:
+  default:
     time: 0 # seconds, put 0 for default.
     prefix: "&7Usuario"
-  Pink:
+  pink:
     time: 604800 # 1 week
     prefix: "&5Pink"
-  Cyan:
+  cyan:
     time: 2629800 # 1 month
     prefix: "&3Cyan"
-  Gold:
+  gold:
     time: 7889400 # 3 months
     prefix: "&6Gold"
-  White:
+  white:
     time: 21038400 # 8 months
     prefix: "&fWhite"
-  Yellow:
+  yellow:
     time: 26298000 # 10 months
     prefix: "&eYellow"
-  Purple:
+  purple:
     time: 31557600 # 1 year
     prefix: "&dPurple"
-  Aqua:
+  aqua:
     time: 39447000 # 1 year and 3 months
     prefix: "&bAqua"
-  Green:
+  green:
     time: 47336400 # 1 year and 6 months
     prefix: "&aGreen"
-  Red:
+  red:
     time: 63115200 # 2 years
     prefix: "&4Red"
 

@@ -5,13 +5,18 @@ import online.nasgar.timedrankup.TimedRankup;
 import online.nasgar.timedrankup.user.User;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * This code has been created by
+ * gatogamer#6666 A.K.A. gatogamer.
+ * If you want to use my code, please
+ * don't remove this messages and
+ * give me the credits. Arigato! n.n
+ */
 @Getter
 public class RankManager {
 

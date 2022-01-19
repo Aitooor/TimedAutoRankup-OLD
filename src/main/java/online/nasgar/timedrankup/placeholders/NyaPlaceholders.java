@@ -7,14 +7,19 @@ import online.nasgar.timedrankup.rank.Rank;
 import online.nasgar.timedrankup.rank.RankManager;
 import online.nasgar.timedrankup.user.User;
 import online.nasgar.timedrankup.utils.TimeUtils;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
-import java.util.Locale;
 
+/**
+ * This code has been created by
+ * gatogamer#6666 A.K.A. gatogamer.
+ * If you want to use my code, please
+ * don't remove this messages and
+ * give me the credits. Arigato! n.n
+ */
 @RequiredArgsConstructor
 public class NyaPlaceholders extends PlaceholderExpansion {
 

@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import online.nasgar.timedrankup.TimedRankup;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -13,6 +12,13 @@ import java.sql.SQLException;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * This code has been created by
+ * gatogamer#6666 A.K.A. gatogamer.
+ * If you want to use my code, please
+ * don't remove this messages and
+ * give me the credits. Arigato! n.n
+ */
 @Getter
 @Setter
 public class User {
