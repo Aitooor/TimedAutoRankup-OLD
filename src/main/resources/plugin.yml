@@ -1,14 +1,11 @@
-main: online.nasgar.timedrankup.TimedRankup
 name: TimedAutoRankup
 version: ${project.version}
-description: A simple plugin to get timed rankups
-
+main: online.nasgar.timedrankup.TimedRankup
 api-version: 1.18
-
 depend: [ Vault, PlaceholderAPI ]
-
 authors: [ gatogamer, NasgarNetwork ]
-
+description: A simple plugin to get timed rankups
+website: https://insaneprojects.club
 
 commands:
   rankup:
