@@ -63,6 +63,11 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+        
+        <repository>
+            <id>unnamed-public</id>
+            <url>https://repo.unnamed.team/repository/unnamed-public/</url>
+        </repository>
 
         <repository>
             <id>placeholderapi</id>
@@ -76,6 +81,24 @@
             <artifactId>spigot-api</artifactId>
             <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>me.yushust.message</groupId>
+            <artifactId>core</artifactId>
+            <version>6.0.17</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>me.yushust.message</groupId>
+            <artifactId>sourcetype-bukkit-yml</artifactId>
+            <version>6.0.17</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>23.0.0</version>
         </dependency>
 
         <dependency>
