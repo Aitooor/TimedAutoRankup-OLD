@@ -2,6 +2,7 @@ package online.nasgar.timedrankup.commands;
 
 import lombok.RequiredArgsConstructor;
 import me.clip.placeholderapi.PlaceholderAPI;
+import me.yushust.message.MessageHandler;
 import online.nasgar.timedrankup.TimedRankup;
 import online.nasgar.timedrankup.user.User;
 import online.nasgar.timedrankup.utils.TimeUtils;
@@ -28,12 +29,15 @@ public class SeeRankupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+            Player message = player.getPlayer();
 
             User user = timedRankup.getUserManager().get(player.getUniqueId());
 
-            timedRankup.getConfig().getStringList("commands.listed.send").forEach(s -> {
+            MessageHandler messageHandler = TimedRankup.getInstance().getMessageHandler();
+
+            messageHandler.replacingMany(message,"COMMANDS.LISTED.SEND").forEach(s -> {
                 if (s.equalsIgnoreCase("%ranks%")) {
-                    String format = timedRankup.getConfig().getString("commands.listed.format", "");
+                    String format = messageHandler.replacing(message,"COMMANDS.LISTED.FORMAT");
                     timedRankup.getRankManager().getRanksInverted().forEach(rank -> {
                         if (user.getTime().get() > rank.getTime()) {
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',

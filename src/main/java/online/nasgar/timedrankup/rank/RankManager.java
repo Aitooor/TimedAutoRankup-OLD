@@ -26,7 +26,7 @@ public class RankManager {
 
     public RankManager(TimedRankup timedRankup) {
         timedRankup.getConfig().getStringList("enabled rankups").forEach(s -> {
-            Rank rank = new Rank(s, timedRankup.getConfig().getString("rankups."+s+".prefix"), timedRankup.getConfig().getInt("rankups."+s+".time"));
+            Rank rank = new Rank(s, timedRankup.getConfig().getString("RANKUPS."+s+".PREFIX"), timedRankup.getConfig().getInt("RANKUPS."+s+".RANKUPS"));
             ranks.add(rank);
             ranksMap.put(s, rank);
         });

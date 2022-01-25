@@ -49,7 +49,7 @@ public class NyaPlaceholders extends PlaceholderExpansion {
         if (params.equalsIgnoreCase("next_rank_time")) {
             Rank rank = rankManager.getNextApplicable(user);
             if (rank == null) {
-                return ChatColor.translateAlternateColorCodes('&', timedRankup.getConfig().getString("no more ranks", "no more ranks"));
+                return ChatColor.translateAlternateColorCodes('&', timedRankup.getMessageHandler().replacing(player,"NO_MORE_RANKS"));
             }
             return TimeUtils.formatTime(Duration.ofSeconds(rank.getTime() - user.getTime().get()));
         }

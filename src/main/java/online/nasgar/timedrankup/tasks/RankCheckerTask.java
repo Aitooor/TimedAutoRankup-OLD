@@ -40,7 +40,7 @@ public class RankCheckerTask extends BukkitRunnable {
                                 )
                         );
                     });
-                    timedRankup.getConfig().getStringList("ranked.own").forEach(s -> {
+                    timedRankup.getMessageHandler().replacingMany(user,"RANKED.OWN").forEach(s -> {
                         user.getAsPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&',
                                 PlaceholderAPI.setPlaceholders(user.getAsPlayer(),
                                         s.replaceAll("%player%", user.getAsPlayer().getName())

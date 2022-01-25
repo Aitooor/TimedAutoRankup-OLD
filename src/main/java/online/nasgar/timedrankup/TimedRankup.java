@@ -29,6 +29,8 @@ import org.bukkit.entity.Player;
 @Getter
 public final class TimedRankup extends JavaPlugin {
 
+    @Getter private static TimedRankup instance;
+
     private MySQL mySQL;
     private RankManager rankManager;
     private UserManager userManager;
@@ -37,10 +39,12 @@ public final class TimedRankup extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
+
         long startTime = System.currentTimeMillis();
         saveDefaultConfig();
 
-        log("&7Loading &bTimedRankup v" + getDescription().getVersion() + " &7by &bgatogamer#6666&7.");
+        log("&7Loading &b" + getDescription().getName() + " v " + getDescription().getVersion() + " &7by " + getDescription().getAuthors());
 
         mySQL = new MySQL(this);
         mySQL.setHost(getConfig().getString("MySQL.Host"));
@@ -55,6 +59,9 @@ public final class TimedRankup extends JavaPlugin {
 
         log("&7Initializing user data...");
         userManager = new UserManager();
+
+        log("&7Initializing languages...");
+        loadLanguages();
 
         log("&7Initializing data task...");
         new RankCheckerTask(this).runTaskTimer(this, 0L, 20L);

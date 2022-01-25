@@ -2,6 +2,7 @@ package online.nasgar.timedrankup.commands;
 
 import lombok.RequiredArgsConstructor;
 import me.clip.placeholderapi.PlaceholderAPI;
+import me.yushust.message.MessageHandler;
 import online.nasgar.timedrankup.TimedRankup;
 import online.nasgar.timedrankup.rank.Rank;
 import online.nasgar.timedrankup.user.User;
@@ -29,19 +30,22 @@ public class SeeNextRankupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+            Player message = player.getPlayer();
 
             User user = timedRankup.getUserManager().get(player.getUniqueId());
 
+            MessageHandler messageHandler = TimedRankup.getInstance().getMessageHandler();
+
             Rank rank = timedRankup.getRankManager().getNextApplicable(user);
             if (rank != null) {
-                timedRankup.getConfig().getStringList("commands.see.next").forEach(s -> {
+                messageHandler.replacingMany(message,"COMMANDS.SEE.NEXT").forEach(s -> {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(player, s
                             .replaceAll("%new_rank_prefix%", rank.getPrefix())
                             .replaceAll("%parsedTime%", TimeUtils.formatTime(Duration.ofSeconds(rank.getTime()-user.getTime().get()))))
                     ));
                 });
             } else {
-                timedRankup.getConfig().getStringList("commands.see.noMore").forEach(s -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', s)));
+                messageHandler.replacingMany(message,"COMMANDS.SEE.NO_MORE").forEach(s -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', s)));
 
             }
         }
