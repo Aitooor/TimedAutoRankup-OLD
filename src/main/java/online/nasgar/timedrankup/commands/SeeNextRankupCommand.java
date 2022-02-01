@@ -30,7 +30,6 @@ public class SeeNextRankupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            Player message = player.getPlayer();
 
             User user = timedRankup.getUserManager().get(player.getUniqueId());
 
@@ -38,14 +37,14 @@ public class SeeNextRankupCommand implements CommandExecutor {
 
             Rank rank = timedRankup.getRankManager().getNextApplicable(user);
             if (rank != null) {
-                messageHandler.replacingMany(message,"COMMANDS.SEE.NEXT").forEach(s -> {
+                messageHandler.replacingMany(player, "COMMANDS.SEE.NEXT").forEach(s -> {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(player, s
                             .replaceAll("%new_rank_prefix%", rank.getPrefix())
                             .replaceAll("%parsedTime%", TimeUtils.formatTime(Duration.ofSeconds(rank.getTime()-user.getTime().get()))))
                     ));
                 });
             } else {
-                messageHandler.replacingMany(message,"COMMANDS.SEE.NO_MORE").forEach(s -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', s)));
+                messageHandler.replacingMany(player, "COMMANDS.SEE.NO_MORE").forEach(s -> player.sendMessage(ChatColor.translateAlternateColorCodes('&', s)));
 
             }
         }

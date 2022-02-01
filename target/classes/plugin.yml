@@ -1,0 +1,13 @@
+name: TimedRankup
+main: online.nasgar.timedrankup.TimedRankup
+version: 1.0
+description: A simple plugin to get timed rankups
+
+depend: [ Vault, PlaceholderAPI ]
+api-version: 1.18
+
+authors: [ gatogamer, NasgarNetwork ]
+
+commands:
+  rankup:
+  nextrankup:

@@ -1,0 +1,15 @@
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/rank/Rank.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/TimedRankup.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/utils/TimeUtils.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/listeners/JoinListener.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/nmessage/UserMessageSender.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/placeholders/NyaPlaceholders.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/nmessage/UserLinguist.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/utils/MessageUtil.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/commands/SeeNextRankupCommand.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/user/User.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/user/UserManager.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/tasks/RankCheckerTask.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/rank/RankManager.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/user/MySQL.java
+/home/enoughsdv/Desktop/Projects/NasgarPlugins/TimedAutoRankup/src/main/java/online/nasgar/timedrankup/commands/SeeRankupCommand.java

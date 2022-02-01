@@ -1,0 +1,27 @@
+NO_MORE_RANKS: "&bUltimo Rankup"
+
+COMMANDS:
+  SEE:
+    NEXT:
+      - "&8&m&l----------------------------"
+      - "&7Tiempo para el nuevo rango &b%parsedTime%"
+      - "&7Rango %new_rank_prefix%"
+      - "&8&m&l----------------------------"
+    NO_MORE:
+      - "&8&m&l----------------------------"
+      - "&7Tienes el ultimo rango"
+      - "&8&m&l----------------------------"
+  LISTED:
+    FORMAT: "&7%rank_prefix% &8- &b%rank_pending_time%&7/&b%rank_needed_time%"
+    SEND:
+      - "&8&m&l----------------------------"
+      - "&7&lLISTA RANGOS"
+      - "&r"
+      - "%ranks%"
+      - "&8&m&l----------------------------"
+
+RANKED:
+  OWN:
+    - "&8&m&l----------------------------"
+    - "&7¡&7Rankeado ha &b%rank_prefix%&7!"
+    - "&8&m&l----------------------------"

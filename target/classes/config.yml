@@ -1,0 +1,56 @@
+handle rankup commands:
+  - "lp user %player% parent add %rank_name%"
+  - "lp user %player% parent remove %old_rank_name%"
+
+default rank: "default"
+
+MySQL:
+  Host: "127.0.0.1"
+  Port: "3306"
+  Username: "usrcx_locsql58"
+  Password: "BhN7AsMqAeAUQkKaQ76GVkK43EJbxXuVsLcVEGQGN2pkeWq2eaQKwGqJb5cFBWdaaNs2GxZUe6v"
+  Database: "survival"
+
+enabled rankups: # Reverse order in order to have the priority to high ranks.
+  - "red"
+  - "green"
+  - "aqua"
+  - "purple"
+  - "yellow"
+  - "white"
+  - "gold"
+  - "cyan"
+  - "pink"
+  - "default"
+
+RANKUPS:
+  default:
+    TIME: 0 # seconds, put 0 for default.
+    PREFIX: "&7✦"
+  pink:
+    TIME: 604800 # 1 week
+    PREFIX: "&5✦"
+  cyan:
+    TIME: 2629800 # 1 month
+    PREFIX: "&3✦"
+  gold:
+    TIME: 7889400 # 3 months
+    PREFIX: "&6✦"
+  white:
+    TIME: 21038400 # 8 months
+    PREFIX: "&f✦"
+  yellow:
+    TIME: 26298000 # 10 months
+    PREFIX: "&e✦"
+  purple:
+    TIME: 31557600 # 1 year
+    PREFIX: "&d✦"
+  aqua:
+    TIME: 39447000 # 1 year and 3 months
+    PREFIX: "&b✦"
+  green:
+    TIME: 47336400 # 1 year and 6 months
+    PREFIX: "&a✦"
+  red:
+    TIME: 63115200 # 2 years
+    PREFIX: "&4✦"
