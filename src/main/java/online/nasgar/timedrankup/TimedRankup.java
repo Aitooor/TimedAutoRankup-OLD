@@ -29,8 +29,7 @@ import org.bukkit.entity.Player;
 @Getter
 public final class TimedRankup extends JavaPlugin {
 
-    @Getter
-    private static TimedRankup instance;
+    @Getter private static TimedRankup instance;
 
     private MySQL mySQL;
     private RankManager rankManager;
@@ -44,9 +43,6 @@ public final class TimedRankup extends JavaPlugin {
 
         long startTime = System.currentTimeMillis();
         saveDefaultConfig();
-
-        log("&7Initializing languages...");
-        loadLanguages();
 
         log("&7Loading &b" + getDescription().getName() + " v " + getDescription().getVersion() + " &7by " + getDescription().getAuthors());
 
@@ -63,6 +59,9 @@ public final class TimedRankup extends JavaPlugin {
 
         log("&7Initializing user data...");
         userManager = new UserManager();
+
+        log("&7Initializing languages...");
+        loadLanguages();
 
         log("&7Initializing data task...");
         new RankCheckerTask(this).runTaskTimer(this, 0L, 20L);
@@ -101,18 +100,18 @@ public final class TimedRankup extends JavaPlugin {
 
         nyaPlaceholders.unregister();
     }
-
+    
     private void loadLanguages() {
         MessageSourceDecorator messageSourceDecorator = MessageSourceDecorator
                 .decorate(BukkitMessageAdapt
                         .newYamlSource(this, new File(getDataFolder(), "languages")));
-
+        
         MessageSource messageSource = messageSourceDecorator
                 .addFallbackLanguage("en")
                 .addFallbackLanguage("es").get();
-
+        
         this.loadFiles("languages/lang_en.yml", "languages/lang_es.yml");
-
+        
         this.messageHandler = MessageHandler.of(
                 messageSource,
                 config -> {

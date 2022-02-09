@@ -29,14 +29,15 @@ public class SeeRankupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+            Player message = player.getPlayer();
 
             User user = timedRankup.getUserManager().get(player.getUniqueId());
 
             MessageHandler messageHandler = TimedRankup.getInstance().getMessageHandler();
 
-            messageHandler.replacingMany(player, "COMMANDS.LISTED.SEND").forEach(s -> {
+            messageHandler.replacingMany(message,"COMMANDS.LISTED.SEND").forEach(s -> {
                 if (s.equalsIgnoreCase("%ranks%")) {
-                    String format = messageHandler.replacing(player, "COMMANDS.LISTED.FORMAT");
+                    String format = messageHandler.replacing(message,"COMMANDS.LISTED.FORMAT");
                     timedRankup.getRankManager().getRanksInverted().forEach(rank -> {
                         if (user.getTime().get() > rank.getTime()) {
                             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
