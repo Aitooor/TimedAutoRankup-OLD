@@ -73,7 +73,7 @@ commands:
       - "&7You have got the last rank."
       - "&r"
   listed:
-    format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &7| &7Total &f%rank_needed_time%"
+    format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &8| &f%rank_needed_time% &7Total"
     formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtained)"
     send:
       - "&r"
