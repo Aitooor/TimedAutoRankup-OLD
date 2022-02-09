@@ -1,3 +1,7 @@
+#################
+# TimedRankups #
+################
+
 handle rankup commands:
   - "lp user %player% parent add %rank_name%"
   - "lp user %player% parent remove %old_rank_name%"
@@ -23,34 +27,67 @@ enabled rankups: # Reverse order in order to have the priority to high ranks.
   - "pink"
   - "default"
 
-RANKUPS:
+no more ranks: "&bLast Rankup"
+
+rankups:
   default:
-    TIME: 0 # seconds, put 0 for default.
-    PREFIX: "&7✦"
+    time: 0 # seconds, put 0 for default.
+    prefix: "&7✦"
   pink:
-    TIME: 604800 # 1 week
-    PREFIX: "&5✦"
+    time: 604800 # 1 week
+    prefix: "&5✦"
   cyan:
-    TIME: 2629800 # 1 month
-    PREFIX: "&3✦"
+    time: 2629800 # 1 month
+    prefix: "&3✦"
   gold:
-    TIME: 7889400 # 3 months
-    PREFIX: "&6✦"
+    time: 7889400 # 3 months
+    prefix: "&6✦"
   white:
-    TIME: 21038400 # 8 months
-    PREFIX: "&f✦"
+    time: 21038400 # 8 months
+    prefix: "&f✦"
   yellow:
-    TIME: 26298000 # 10 months
-    PREFIX: "&e✦"
+    time: 26298000 # 10 months
+    prefix: "&e✦"
   purple:
-    TIME: 31557600 # 1 year
-    PREFIX: "&d✦"
+    time: 31557600 # 1 year
+    prefix: "&d✦"
   aqua:
-    TIME: 39447000 # 1 year and 3 months
-    PREFIX: "&b✦"
+    time: 39447000 # 1 year and 3 months
+    prefix: "&b✦"
   green:
-    TIME: 47336400 # 1 year and 6 months
-    PREFIX: "&a✦"
+    time: 47336400 # 1 year and 6 months
+    prefix: "&a✦"
   red:
-    TIME: 63115200 # 2 years
-    PREFIX: "&4✦"
+    time: 63115200 # 2 years
+    prefix: "&4✦"
+
+commands:
+  see:
+    next:
+      - "&8&m&l----------------------------"
+      - "&7Time to new rank &b%parsedTime%"
+      - "&7Rank %new_rank_prefix%"
+      - "&8&m&l----------------------------"
+    noMore:
+      - "&8&m&l----------------------------"
+      - "&7You have got the last rank."
+      - "&8&m&l----------------------------"
+  listed:
+    format: "&7%rank_prefix% &8- &b%rank_pending_time%&7/&b%rank_needed_time%"
+    formatAlready: "&7%rank_prefix% &8- &b&b%rank_needed_time% &7(obtained)"
+    send:
+      - "&8&m&l----------------------------"
+      - "&7&lRANK LIST"
+      - "&r"
+      - "%ranks%"
+      - "&8&m&l----------------------------"
+
+ranked:
+  all:
+    - "&8&m&l----------------------------"
+    - "&7¡&b%player% &7ranked to &b%rank_prefix%&7!"
+    - "&8&m&l----------------------------"
+  own:
+    - "&8&m&l----------------------------"
+    - "&7¡&7Ranked to &b%rank_prefix%&7!"
+    - "&8&m&l----------------------------"
