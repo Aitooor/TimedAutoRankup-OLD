@@ -1,6 +1,5 @@
 package online.nasgar.timedrankup;
 
-import java.io.File;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import online.nasgar.timedrankup.commands.SeeNextRankupCommand;
@@ -17,14 +16,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.time.Duration;
-import me.yushust.message.MessageHandler;
-import me.yushust.message.bukkit.BukkitMessageAdapt;
-import me.yushust.message.source.MessageSource;
-import me.yushust.message.source.MessageSourceDecorator;
-import online.nasgar.timedrankup.nmessage.UserLinguist;
-import online.nasgar.timedrankup.nmessage.UserMessageSender;
-import online.nasgar.timedrankup.utils.MessageUtil;
-import org.bukkit.entity.Player;
 
 @Getter
 public final class TimedRankup extends JavaPlugin {
@@ -33,7 +24,6 @@ public final class TimedRankup extends JavaPlugin {
     private RankManager rankManager;
     private UserManager userManager;
     private NyaPlaceholders nyaPlaceholders;
-    private MessageHandler messageHandler;
 
     @Override
     public void onEnable() {
@@ -92,37 +82,6 @@ public final class TimedRankup extends JavaPlugin {
         mySQL.getConnection().close();
 
         nyaPlaceholders.unregister();
-    }
-    
-    private void loadLanguages() {
-        MessageSourceDecorator messageSourceDecorator = MessageSourceDecorator
-                .decorate(BukkitMessageAdapt
-                        .newYamlSource(this, new File(getDataFolder(), "languages")));
-        
-        MessageSource messageSource = messageSourceDecorator
-                .addFallbackLanguage("en")
-                .addFallbackLanguage("es").get();
-        
-        this.loadFiles("languages/lang_en.yml", "languages/lang_es.yml");
-        
-        this.messageHandler = MessageHandler.of(
-                messageSource,
-                config -> {
-                    config.addInterceptor(MessageUtil::translate);
-
-                    config.specify(Player.class)
-                            .setMessageSender(new UserMessageSender())
-                            .setLinguist(new UserLinguist());
-                }
-        );
-    }
-
-    private void loadFiles(String... files) {
-        for (String name : files) {
-            if (this.getResource(name) != null) {
-                this.saveResource(name, false);
-            }
-        }
     }
 
     public void log(String s) {
