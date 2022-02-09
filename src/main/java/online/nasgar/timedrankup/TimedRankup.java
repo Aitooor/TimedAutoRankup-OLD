@@ -30,7 +30,7 @@ public final class TimedRankup extends JavaPlugin {
         long startTime = System.currentTimeMillis();
         saveDefaultConfig();
 
-        log("&7Loading &bTimedRankup v" + getDescription().getVersion() + " &7by &bgatogamer#6666&7.");
+        log("&7Loading &bTimedRankup v" + getDescription().getVersion() + " " + getDescription().getAuthors());
 
         mySQL = new MySQL(this);
         mySQL.setHost(getConfig().getString("MySQL.Host"));
