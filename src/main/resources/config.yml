@@ -27,7 +27,7 @@ enabled rankups: # Reverse order in order to have the priority to high ranks.
   - "pink"
   - "default"
 
-no more ranks: "&bLast Rankup"
+no more ranks: "&bLast RankUP"
 
 rankups:
   default:
@@ -64,30 +64,30 @@ rankups:
 commands:
   see:
     next:
-      - "&8&m&l----------------------------"
-      - "&7Time to new rank &b%parsedTime%"
+      - "&r"
+      - "&7Time to new rank &f%parsedTime%"
       - "&7Rank %new_rank_prefix%"
-      - "&8&m&l----------------------------"
+      - "&r"
     noMore:
-      - "&8&m&l----------------------------"
+      - "&r"
       - "&7You have got the last rank."
-      - "&8&m&l----------------------------"
+      - "&r"
   listed:
-    format: "&7%rank_prefix% &8- &b%rank_pending_time%&7/&b%rank_needed_time%"
-    formatAlready: "&7%rank_prefix% &8- &b&b%rank_needed_time% &7(obtained)"
+    format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &7| &7Total &f%rank_needed_time%"
+    formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtained)"
     send:
-      - "&8&m&l----------------------------"
-      - "&7&lRANK LIST"
+      - "&r"
+      - "&7&lRankUP List"
       - "&r"
       - "%ranks%"
-      - "&8&m&l----------------------------"
+      - "&r"
 
 ranked:
   all:
-    - "&8&m&l----------------------------"
+    - "&r"
     - "&7¡&b%player% &7ranked to &b%rank_prefix%&7!"
-    - "&8&m&l----------------------------"
+    - "&r"
   own:
-    - "&8&m&l----------------------------"
-    - "&7¡&7Ranked to &b%rank_prefix%&7!"
-    - "&8&m&l----------------------------"
+    - "&r"
+    - "&7Ranked to %rank_prefix%&7!"
+    - "&r"
