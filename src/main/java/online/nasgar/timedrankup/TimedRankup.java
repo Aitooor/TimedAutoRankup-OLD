@@ -2,6 +2,10 @@ package online.nasgar.timedrankup;
 
 import lombok.Getter;
 import lombok.SneakyThrows;
+import me.clip.placeholderapi.PlaceholderAPI;
+import me.yushust.message.MessageHandler;
+import me.yushust.message.bukkit.BukkitMessageAdapt;
+import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.timedrankup.commands.SeeNextRankupCommand;
 import online.nasgar.timedrankup.commands.SeeRankupCommand;
 import online.nasgar.timedrankup.listeners.JoinListener;
@@ -13,8 +17,12 @@ import online.nasgar.timedrankup.user.UserManager;
 import online.nasgar.timedrankup.utils.TimeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.time.Duration;
 
 @Getter
@@ -24,6 +32,7 @@ public final class TimedRankup extends JavaPlugin {
     private RankManager rankManager;
     private UserManager userManager;
     private NyaPlaceholders nyaPlaceholders;
+    private MessageHandler messageHandler;
 
     @Override
     public void onEnable() {
@@ -39,6 +48,44 @@ public final class TimedRankup extends JavaPlugin {
         mySQL.setPassword(getConfig().getString("MySQL.Password"));
         mySQL.setDatabase(getConfig().getString("MySQL.Database"));
         mySQL.connect();
+
+        saveResource("languages/lang_en.yml", false);
+        saveResource("languages/lang_es.yml", false);
+
+        messageHandler = MessageHandler.of(
+                MessageSourceDecorator
+                        .decorate(BukkitMessageAdapt.newYamlSource(
+                                this, new File(getDataFolder(), "languages")
+                        ))
+                        .addFallbackLanguage("es")
+                        .get(),
+                configurationHandle -> {
+                    configurationHandle.addInterceptor(message ->
+                            ChatColor.translateAlternateColorCodes(
+                                    '&', message
+                            ));
+
+                    configurationHandle.specify(CommandSender.class)
+                            .setLinguist(sender -> {
+                                if (sender instanceof Player) {
+                                    return ((Player) sender).getLocale()
+                                            .split("_")[0];
+                                } else {
+                                    return "es";
+                                }
+                            })
+                            .setMessageSender((sender, mode, message) -> {
+                                if (mode.equals("placeholder") &&
+                                        sender instanceof Player) {
+                                    sender.sendMessage(PlaceholderAPI.setPlaceholders(
+                                            (Player) sender,
+                                            message
+                                    ));
+                                } else {
+                                    sender.sendMessage(message);
+                                }
+                            });
+                });
 
         log("&7Initializing ranks...");
         rankManager = new RankManager(this);
