@@ -27,8 +27,6 @@ enabled rankups: # Reverse order in order to have the priority to high ranks.
   - "pink"
   - "default"
 
-no more ranks: "&bLast RankUP"
-
 rankups:
   default:
     time: 0 # seconds, put 0 for default.
@@ -60,34 +58,3 @@ rankups:
   red:
     time: 63115200 # 2 years
     prefix: "&4✦"
-
-commands:
-  see:
-    next:
-      - "&r"
-      - "&7Time to new rank &f%parsedTime%"
-      - "&7Rank %new_rank_prefix%"
-      - "&r"
-    noMore:
-      - "&r"
-      - "&7You have got the last rank."
-      - "&r"
-  listed:
-    format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &8| &f%rank_needed_time% &7Total"
-    formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtained)"
-    send:
-      - "&r"
-      - "&7&lRankUP List"
-      - "&r"
-      - "%ranks%"
-      - "&r"
-
-ranked:
-  all:
-    - "&r"
-    - "&7¡&b%player% &7ranked to &b%rank_prefix%&7!"
-    - "&r"
-  own:
-    - "&r"
-    - "&7Ranked to %rank_prefix%&7!"
-    - "&r"
