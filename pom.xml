@@ -60,6 +60,11 @@
         </repository>
 
         <repository>
+            <id>unnamed-public</id>
+            <url>https://repo.unnamed.team/repository/unnamed-public/</url>
+        </repository>
+
+        <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
@@ -83,6 +88,20 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>me.yushust.message</groupId>
+            <artifactId>core</artifactId>
+            <version>6.0.17</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>me.yushust.message</groupId>
+            <artifactId>sourcetype-bukkit-yml</artifactId>
+            <version>6.0.17</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
