@@ -2,24 +2,24 @@ commands:
   see:
     next:
       - "&r"
-      - "&7Time to new rank &f%parsedTime%"
-      - "&7Rank %new_rank_prefix%"
+      - "&7Time to new Rankup &f%parsedTime%"
+      - "&7Rankup %new_rank_prefix%"
       - "&r"
     noMore:
       - "&r"
-      - "&7You have got the last rank."
+      - "&7You have got the last Rankup."
       - "&r"
   listed:
     format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &8| &f%rank_needed_time% &7Total"
     formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtained)"
     send:
       - "&r"
-      - "&7&lRankUP List"
+      - "&7&lRankups List"
       - "&r"
       - "%ranks%"
       - "&r"
 
-no-more-ranks: "&bLast RankUP"
+no-more-ranks: "&bLast Rankup"
 
 ranked:
   all:

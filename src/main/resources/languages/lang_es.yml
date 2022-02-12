@@ -2,24 +2,24 @@ commands:
   see:
     next:
       - "&r"
-      - "&7Tiempo restante para tu nuevo rango &f%parsedTime%"
-      - "&7Siguiente rango %new_rank_prefix%"
+      - "&7Tiempo restante para tu nuevo Rankup &f%parsedTime%"
+      - "&7Rankup %new_rank_prefix%"
       - "&r"
     noMore:
       - "&r"
-      - "&7Ya tienes el siguiente último rango."
+      - "&7Ya tienes el último rango."
       - "&r"
   listed:
-    format: "%rank_prefix% &8- &7Missing &f%rank_pending_time% &8| &f%rank_needed_time% &7Total"
-    formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtained)"
+    format: "%rank_prefix% &8- &7Restantes &f%rank_pending_time% &8| &f%rank_needed_time% &7Total"
+    formatAlready: "%rank_prefix% &8- &a%rank_needed_time% &7(Obtenido)"
     send:
       - "&r"
-      - "&7&lRankUP List"
+      - "&7&lLista de Rankups"
       - "&r"
       - "%ranks%"
       - "&r"
 
-no-more-ranks: "&cNo hay más rangos disponibles."
+no-more-ranks: "&cNo hay más Rankups disponibles."
 
 ranked:
   all:
