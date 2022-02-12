@@ -6,6 +6,7 @@ import online.nasgar.timedrankup.TimedRankup;
 import online.nasgar.timedrankup.rank.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
@@ -30,10 +31,13 @@ public class RankCheckerTask extends BukkitRunnable {
                 if (!nextRank.getName().equals(user.getRank())) {
                     user.setRank(nextRank.getName());
                     Bukkit.getScheduler().runTaskAsynchronously(timedRankup, user::save);
+                    Player player = user.getAsPlayer();
+                    String playerName = player.getName();
+
                     timedRankup.getConfig().getStringList("handle rankup commands").forEach(s -> {
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
-                                PlaceholderAPI.setPlaceholders(user.getAsPlayer(), s
-                                        .replaceAll("%player%", user.getAsPlayer().getName())
+                                PlaceholderAPI.setPlaceholders(player, s
+                                        .replaceAll("%player%", playerName)
                                         .replaceAll("%rank_name%", nextRank.getName())
                                         .replaceAll("%rank_prefix%", nextRank.getPrefix())
                                         .replaceAll("%old_rank_name%", actualRank)
@@ -41,9 +45,9 @@ public class RankCheckerTask extends BukkitRunnable {
                         );
                     });
                     timedRankup.getConfig().getStringList("ranked.own").forEach(s -> {
-                        user.getAsPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                PlaceholderAPI.setPlaceholders(user.getAsPlayer(),
-                                        s.replaceAll("%player%", user.getAsPlayer().getName())
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                                PlaceholderAPI.setPlaceholders(player,
+                                        s.replaceAll("%player%", playerName)
                                         .replaceAll("%rank_prefix%", nextRank.getPrefix())
                                         .replaceAll("%rank_name%", nextRank.getName())
                                 )
