@@ -56,7 +56,7 @@ public class SeeRankupCommand implements CommandExecutor {
             });
 
             messageHandler.sendReplacingIn(
-                    player, "placeholder", "commands.listed.format",
+                    player, "placeholder", "commands.listed.send",
                     "%ranks%", String.join("\n", formattedRanks)
             );
         }
