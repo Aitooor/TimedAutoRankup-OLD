@@ -44,15 +44,14 @@ public class RankCheckerTask extends BukkitRunnable {
                                 )
                         );
                     });
-                    timedRankup.getConfig().getStringList("ranked.own").forEach(s -> {
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                                PlaceholderAPI.setPlaceholders(player,
-                                        s.replaceAll("%player%", playerName)
-                                        .replaceAll("%rank_prefix%", nextRank.getPrefix())
-                                        .replaceAll("%rank_name%", nextRank.getName())
-                                )
-                        ));
-                    });
+
+                    timedRankup.getMessageHandler().sendReplacingIn(
+                            player, "placeholder",
+                            "ranked.own",
+                            "%player%", playerName,
+                            "%rank_prefix%", nextRank.getPrefix(),
+                            "%rank_name%", nextRank.getName()
+                    );
                 }
             }
         });
