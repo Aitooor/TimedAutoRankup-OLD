@@ -6,7 +6,7 @@
 
     <groupId>online.nasgar</groupId>
     <artifactId>TimedRankup</artifactId>
-    <version>1.0</version>
+    <version>1.18</version>
     <packaging>jar</packaging>
 
     <name>TimedRankup</name>
