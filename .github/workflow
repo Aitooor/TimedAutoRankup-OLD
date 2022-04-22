@@ -21,5 +21,4 @@ jobs:
                             "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
                         }]'
             -   name: Publish
-                if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/1.18' }}
                 run: mvn deploy
