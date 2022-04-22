@@ -17,6 +17,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>nasgar-ci</id>
+            <url>https://repo.nasgar.online/repository/nasgar-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nasgar-ci</id>
+            <url>https://repo.nasgar.online/repository/nasgar-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>

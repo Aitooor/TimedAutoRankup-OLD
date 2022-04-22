@@ -1,7 +1,3 @@
-#################
-# TimedRankups #
-################
-
 handle rankup commands:
   - "lp user %player% parent add %rank_name%"
   - "lp user %player% parent remove %old_rank_name%"
