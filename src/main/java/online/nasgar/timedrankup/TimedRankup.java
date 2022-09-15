@@ -4,11 +4,15 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
+import me.yushust.message.MessageProvider;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.timedrankup.commands.SeeNextRankupCommand;
 import online.nasgar.timedrankup.commands.SeeRankupCommand;
 import online.nasgar.timedrankup.listeners.JoinListener;
+import online.nasgar.timedrankup.nms.LocaleCraftBukkit;
+import online.nasgar.timedrankup.nms.LocaleSpigot;
+import online.nasgar.timedrankup.nms.iLocale;
 import online.nasgar.timedrankup.placeholders.NyaPlaceholders;
 import online.nasgar.timedrankup.rank.RankManager;
 import online.nasgar.timedrankup.tasks.RankCheckerTask;
@@ -17,13 +21,13 @@ import online.nasgar.timedrankup.user.UserManager;
 import online.nasgar.timedrankup.utils.TimeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.Objects;
 
 @Getter
 public final class TimedRankup extends JavaPlugin {
@@ -33,6 +37,7 @@ public final class TimedRankup extends JavaPlugin {
     private UserManager userManager;
     private NyaPlaceholders nyaPlaceholders;
     private MessageHandler messageHandler;
+    private iLocale locale;
 
     @Override
     public void onEnable() {
@@ -49,15 +54,13 @@ public final class TimedRankup extends JavaPlugin {
         mySQL.setDatabase(getConfig().getString("MySQL.Database"));
         mySQL.connect();
 
-        saveResource("languages/lang_en.yml", false);
-        saveResource("languages/lang_es.yml", false);
-
+        this.loadMessages();
         messageHandler = MessageHandler.of(
                 MessageSourceDecorator
                         .decorate(BukkitMessageAdapt.newYamlSource(
-                                this, new File(getDataFolder(), "languages")
+                                this, new File(getDataFolder(), "lang")
                         ))
-                        .addFallbackLanguage("es")
+                        .addFallbackLanguage("en")
                         .get(),
                 configurationHandle -> {
                     configurationHandle.addInterceptor(message ->
@@ -104,8 +107,8 @@ public final class TimedRankup extends JavaPlugin {
         nyaPlaceholders.register();
 
         log("&7Initializing commands...");
-        getCommand("rankup").setExecutor(new SeeRankupCommand(this));
-        getCommand("nextrankup").setExecutor(new SeeNextRankupCommand(this));
+        Objects.requireNonNull(getCommand("rankup")).setExecutor(new SeeRankupCommand(this));
+        Objects.requireNonNull(getCommand("nextrankup")).setExecutor(new SeeNextRankupCommand(this));
 
         log("&7Plugin loaded successfully in &b" + TimeUtils.formatTimeWithMillis(Duration.ofMillis(System.currentTimeMillis() - startTime)) + "&7...");
     }
@@ -129,6 +132,60 @@ public final class TimedRankup extends JavaPlugin {
         mySQL.getConnection().close();
 
         nyaPlaceholders.unregister();
+    }
+
+    private void loadMessages() {
+        setupLocale();
+
+        saveResource("lang/lang_en.yml", false);
+        saveResource("lang/lang_es.yml", false);
+
+        MessageProvider messageProvider = MessageProvider
+                .create(
+                        MessageSourceDecorator
+                                .decorate(BukkitMessageAdapt.newYamlSource(this, "lang_%lang%.yml"))
+                                .addFallbackLanguage("en")
+                                .addFallbackLanguage("es")
+                                .get(),
+                        config -> {
+                            config.specify(Player.class)
+                                    .setLinguist(player -> {
+                                        try {
+                                            return locale.getLocale(player).split("_")[0];
+                                        } catch (Exception e) {
+                                            throw new RuntimeException(e);
+                                        }
+                                    })
+                                    .setMessageSender((sender, mode, message) -> {
+                                        if (mode.equals("placeholder") && sender instanceof Player) {
+                                            sender.sendMessage(PlaceholderAPI.setPlaceholders(
+                                                    sender,
+                                                    message
+                                            ));
+                                        } else {
+                                            sender.sendMessage(message);
+                                        }
+                                    });
+                            config.specify(CommandSender.class)
+                                    .setLinguist(commandSender -> "en")
+                                    .setMessageSender((sender, mode, message) -> sender.sendMessage(message));
+                            config.addInterceptor(s -> ChatColor.translateAlternateColorCodes('&', s));
+                        }
+                );
+
+        messageHandler = MessageHandler.of(messageProvider);
+    }
+
+    private void setupLocale() {
+        double version = 0;
+        try {
+            version = Double.parseDouble(Bukkit.getBukkitVersion().split("-")[0].replaceFirst("1\\.", ""));
+        } catch (Exception ignored) {}
+
+        if (version > 8.8) // > 1.8.8
+            locale = new LocaleSpigot();
+        else
+            locale = new LocaleCraftBukkit();
     }
 
     public void log(String s) {

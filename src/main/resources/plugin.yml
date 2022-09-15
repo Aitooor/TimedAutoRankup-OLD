@@ -4,7 +4,7 @@ version: ${project.version}
 description: A simple plugin to get timed rankups
 
 depends: [ Vault, PlaceholderAPI ]
-api-version: 1.18
+api-version: 1.13
 
 authors: [ gatogamer, NasgarNetwork Development Team]
 
