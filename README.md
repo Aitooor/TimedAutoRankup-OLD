@@ -1,6 +1,6 @@
 # TimedAutoRankup
 
-Basis timed automatic rankup for Spigot 1.8
+Basis timed automatic rankup for Spigot 1.8-1.19
 
 ### Placeholders
 %timedrankup_rank_prefix% <br>
