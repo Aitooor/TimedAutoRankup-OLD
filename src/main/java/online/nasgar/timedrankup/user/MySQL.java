@@ -44,7 +44,7 @@ public class MySQL {
             properties.setProperty("useSSL", "false");
             properties.setProperty("requireSSL", "false");
             connection = DriverManager.getConnection("jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database, properties);
-            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS PlayerData (playerIndex INT AUTO_INCREMENT PRIMARY KEY, UUID VARCHAR(100), Rank VARCHAR(100), Time BIGINT)");
+            connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS timed_auto_rankup (playerIndex INT AUTO_INCREMENT PRIMARY KEY, UUID VARCHAR(100), Rank VARCHAR(100), Time BIGINT)");
             timedRankup.log("Connected to MySQL!");
         } catch (Exception e) {
             e.printStackTrace();

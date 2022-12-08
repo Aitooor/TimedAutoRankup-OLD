@@ -34,7 +34,7 @@ public class User {
 
     public void save() {
         if (dataLoaded) {
-            getMySQL().update("UPDATE PlayerData SET Rank='" + this.rank + "', Time=" + this.time.get() + " WHERE UUID='" + this.uuid.toString()+"'");
+            getMySQL().update("UPDATE timed_auto_rankup SET Rank='" + this.rank + "', Time=" + this.time.get() + " WHERE UUID='" + this.uuid.toString()+"'");
         }
     }
 
@@ -46,14 +46,14 @@ public class User {
             time.set(resultSet.getInt("Time"));
         } else {
             rank = getPlugin().getConfig().getString("default rank");
-            getMySQL().update("INSERT INTO PlayerData (UUID, Rank, Time) VALUES ('" + this.uuid.toString() + "', '" + this.rank + "', '" + this.time.get() + "')");
+            getMySQL().update("INSERT INTO timed_auto_rankup (UUID, Rank, Time) VALUES ('" + this.uuid.toString() + "', '" + this.rank + "', '" + this.time.get() + "')");
         }
         dataLoaded = true;
     }
 
     public ResultSet getIfExists() {
         try {
-            ResultSet rs = getMySQL().query("SELECT * FROM PlayerData WHERE UUID='" + uuid.toString() + "'");
+            ResultSet rs = getMySQL().query("SELECT * FROM timed_auto_rankup WHERE UUID='" + uuid.toString() + "'");
             if (rs.next()) {
                 return rs;
             }
