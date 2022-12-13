@@ -1,29 +1,22 @@
-name: Deploy to Nasgar Repo
-on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
-    workflow_dispatch:
-        branches: [ main ]
+name: 'build'
+on: [ 'pull_request', 'push' ]
 jobs:
-    deployment:
+    build:
         if: ${{ github.event_name != 'pull_request' || github.repository != github.event.pull_request.head.repo.full_name }}
         runs-on: ubuntu-latest
         steps:
             -   name: 'checkout repo'
                 uses: 'actions/checkout@v2'
-            -   name: 'setup JDK 16'
+            -   name: 'setup JDK'
                 uses: 'actions/setup-java@v1'
                 with:
                     java-version: 16
-                    distribution: adopt
             -   name: Setup Maven credentials
                 uses: s4u/maven-settings-action@v2.6.0
                 with:
                     servers: '
                         [{
-                            "id": "nasgar-repo",
+                            "id": "nasgar-aitooor",
                             "username": "${{ secrets.NASGAR_CI_USER }}",
                             "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
                         }]'
