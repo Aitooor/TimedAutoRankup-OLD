@@ -19,7 +19,8 @@
 
     <distributionManagement>
         <repository>
-            <id>nasgar-repo</id>
+            <id>nasgar-repo-releases</id>
+            <name>Nasgar Repository</name>
             <url>https://repo.nasgar.online/releases</url>
         </repository>
     </distributionManagement>
