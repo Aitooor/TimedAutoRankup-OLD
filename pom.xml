@@ -6,7 +6,7 @@
 
     <groupId>online.nasgar</groupId>
     <artifactId>TimedRankup</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>TimedRankup</name>
@@ -19,7 +19,6 @@
 
     <distributionManagement>
         <repository>
-            <name>Nasgar Repository Releases</name>
             <id>nasgar-repo</id>
             <url>https://repo.nasgar.online/releases/</url>
         </repository>
