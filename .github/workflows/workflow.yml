@@ -10,6 +10,9 @@ jobs:
         with:
           java-version: 16
 
+      - name: Check source
+        uses: actions/checkout@v2
+
       - name: Deploy with Maven
         run: mvn deploy
         env:
