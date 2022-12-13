@@ -20,7 +20,7 @@
     <distributionManagement>
         <repository>
             <id>nasgar-repo</id>
-            <url>https://repo.nasgar.online/releases/</url>
+            <url>https://repo.nasgar.online/releases</url>
         </repository>
     </distributionManagement>
 
