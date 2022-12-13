@@ -1,7 +1,7 @@
 name: 'build'
 on: [ 'pull_request', 'push' ]
 jobs:
-    build:
+    deploy:
         if: ${{ github.event_name != 'pull_request' || github.repository != github.event.pull_request.head.repo.full_name }}
         runs-on: ubuntu-latest
         steps:
@@ -10,13 +10,13 @@ jobs:
             -   name: 'setup JDK'
                 uses: 'actions/setup-java@v1'
                 with:
-                    java-version: 8
+                    java-version: 16
             -   name: Setup Maven credentials
                 uses: s4u/maven-settings-action@v2.6.0
                 with:
                     servers: '
                         [{
-                            "id": "nasgar-ci",
+                            "id": "nasgar-aitooor",
                             "username": "${{ secrets.NASGAR_CI_USER }}",
                             "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
                         }]'
