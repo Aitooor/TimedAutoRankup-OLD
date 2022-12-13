@@ -13,17 +13,15 @@ jobs:
       - name: Check source
         uses: actions/checkout@v2
 
-      - name: Setup Maven credentials
-        uses: s4u/maven-settings-action@v2.6.0
-        with:
-          servers: '
-              [{
-                  "id": "nasgar-repo",
-                  "username": "${{ secrets.NASGAR_CI_USER }}",
-                  "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
-              }]'
-
       - name: Deploy with Maven
+        uses: s4u/maven-settings-action@v2.6.0
+          with:
+            servers: '
+                [{
+                    "id": "nasgar-repo",
+                    "username": "${{ secrets.NASGAR_CI_USER }}",
+                    "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
+                }]'
         run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
