@@ -15,12 +15,14 @@ jobs:
 
       - name: Setup Repo credentials
         uses: s4u/maven-settings-action@v2.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           servers: '
             [{
               "id": "nasgar-repo",
-              "username": "${{ secrets.NASGAR_CI_USER }}",
-              "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
+              "username": "${{ secrets.NASGAR_REPO_USER }}",
+              "password": "${{ secrets.NASGAR_REPO_PASSWORD }}"
             }]'
 
       - name: Deploy with Maven
