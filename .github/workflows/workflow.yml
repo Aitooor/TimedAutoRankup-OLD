@@ -11,6 +11,6 @@ jobs:
           java-version: 16
 
       - name: Deploy with Maven
-        run: mvn clean deploy
+        run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
