@@ -18,7 +18,7 @@ jobs:
         with:
           servers: '
             [{
-              "id": "nasgar-ci",
+              "id": "nasgar-repo",
               "username": "${{ secrets.NASGAR_CI_USER }}",
               "password": "${{ secrets.NASGAR_CI_PASSWORD }}"
             }]'
