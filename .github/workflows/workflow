@@ -17,5 +17,3 @@ jobs:
         run: mvn deploy -X
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NASGAR_CI_USER: ${{ secrets.NASGAR_CI_USER }}
-          NASGAR_CI_PASSWORD: ${{ secrets.NASGAR_CI_PASSWORD }}
