@@ -13,7 +13,7 @@ jobs:
       - name: Check source
         uses: actions/checkout@v2
 
-      - name: Deploy with Maven
+      - name: Auth deploy for Maven
         uses: s4u/maven-settings-action@v2.6.0
           with:
             servers: '
@@ -24,4 +24,6 @@ jobs:
                     }]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy with Maven
         run: mvn --batch-mode deploy
