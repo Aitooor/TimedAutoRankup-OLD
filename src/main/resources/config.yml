@@ -7,8 +7,8 @@ default rank: "default"
 MySQL:
   Host: "127.0.0.1"
   Port: "3306"
-  Username: "usrcx_locsql58"
-  Password: "BhN7AsMqAeAUQkKaQ76GVkK43EJbxXuVsLcVEGQGN2pkeWq2eaQKwGqJb5cFBWdaaNs2GxZUe6v"
+  Username: ""
+  Password: ""
   Database: "survival"
 
 enabled rankups: # Reverse order in order to have the priority to high ranks.
